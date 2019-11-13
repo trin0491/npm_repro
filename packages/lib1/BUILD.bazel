@@ -8,5 +8,6 @@ ts_library(
     module_name = "lib1",
     node_modules = "@npm_lib1//typescript:typescript__typings",
     deps = [
+        "@npm_lib1//lodash-es"
     ],
 )

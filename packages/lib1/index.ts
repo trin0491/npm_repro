@@ -1,5 +1,3 @@
-// import * as _ from "lodash-es";
-//
-// export const A_NUMBER = _.toSafeInteger('42.2');
+import * as _ from "lodash-es";
 
-export const A_NUMBER = 42;
+export const A_NUMBER = _.toSafeInteger('42.2');
