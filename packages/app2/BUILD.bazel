@@ -1,0 +1,24 @@
+package(default_visibility = ["//visibility:private"])
+
+load("@npm_bazel_typescript//:index.bzl", "ts_library", "ts_devserver")
+
+ts_library(
+    name = "app2",
+    srcs = ["index.ts"],
+    module_name = "app2",
+    node_modules = "@npm_app2//typescript:typescript__typings",
+    deps = [
+        "@npm_app2//@types/is-number",
+        "//packages/lib1"
+    ],
+)
+
+ts_devserver(
+    name = "devserver",
+    index_html = "index.html",
+    entry_module = "app2",
+    deps = [
+        ":app2",
+        "@npm_app2//is-number:is-number__umd",
+    ],
+)

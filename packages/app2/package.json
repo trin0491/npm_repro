@@ -1,0 +1,11 @@
+{
+  "name": "app2",
+  "version": "1.0.0",
+  "dependencies": {
+    "is-number": "6.0.0"  
+  },
+  "devDependencies": {
+    "@types/is-number": "3.0.1",
+    "typescript": "~3.4.0"
+  }
+}
