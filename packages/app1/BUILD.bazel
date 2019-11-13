@@ -19,6 +19,7 @@ ts_devserver(
     entry_module = "app1",
     deps = [
         ":app1",
-        "@npm_app1//is-number:is-number__umd"
+        "@npm_app1//is-number:is-number__umd",
+        "@npm_lib1//lodash-es:lodash-es__umd"
     ]
 )
