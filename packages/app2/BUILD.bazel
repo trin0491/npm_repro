@@ -20,5 +20,6 @@ ts_devserver(
     deps = [
         ":app2",
         "@npm_app2//is-number:is-number__umd",
+        "@npm_app2//lodash-es:lodash-es__umd"
     ],
 )
