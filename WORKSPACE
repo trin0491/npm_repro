@@ -9,6 +9,7 @@ workspace(
     # This lets Bazel use the same node_modules as other local tooling.
     managed_directories = {
         "@npm": ["node_modules"],
+        "@npm_lib1": ["packages/lib1/node_modules"],
         "@npm_app1": ["packages/app1/node_modules"],
         "@npm_app2": ["packages/app2/node_modules"]
     },
@@ -46,8 +47,8 @@ rules_typescript_dev_dependencies()
 # The yarn_install rule runs yarn anytime the package.json or yarn.lock file changes.
 # It also extracts and installs any Bazel rules distributed in an npm package.
 load("@build_bazel_rules_nodejs//:index.bzl", "yarn_install")
+
 yarn_install(
-    # Name this npm so that Bazel Label references look like @npm//package
     name = "npm",
     package_json = "//:package.json",
     yarn_lock = "//:yarn.lock",
@@ -55,7 +56,6 @@ yarn_install(
 )
 
 yarn_install(
-    # Name this npm so that Bazel Label references look like @npm//package
     name = "npm_lib1",
     package_json = "//packages/lib1:package.json",
     yarn_lock = "//packages/lib1:yarn.lock",
@@ -63,7 +63,6 @@ yarn_install(
 )
 
 yarn_install(
-    # Name this npm so that Bazel Label references look like @npm//package
     name = "npm_app1",
     package_json = "//packages/app1:package.json",
     yarn_lock = "//packages/app1:yarn.lock",
@@ -71,7 +70,6 @@ yarn_install(
 )
 
 yarn_install(
-    # Name this npm so that Bazel Label references look like @npm//package
     name = "npm_app2",
     package_json = "//packages/app2:package.json",
     yarn_lock = "//packages/app2:yarn.lock",
